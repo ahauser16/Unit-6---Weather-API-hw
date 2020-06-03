@@ -3,15 +3,6 @@ const key = "166a433c57516f51dfab1f7edaed8413";
 
 const key2 = "90e328dadef6a612bdd08017e15de2fb"
 
-var city = document.querySelector("#city-form");
-
-city.addEventListener("submit", getCityWeather);
-
-
-
-
-
-
 //User's Location - before user enters City ID or Name, Zip Code or geographic coordinates we need
 //to make sure geolocation services are available.
 if ("geolocation" in navigator) {
@@ -144,8 +135,11 @@ function getWeather(latitude, longitude) {
 
 }
 
+//I could not figure out how to get the City search API call (triggered by the user when they enter a submit request) to work.  The latitude & longitude API call (triggered by the user when they approve a geolocation prompt).
 
+var city = document.querySelector("#city-form");
 
+city.addEventListener("submit", getCityWeather);
 
 function getCityWeather(e) {
 
@@ -167,12 +161,15 @@ function getCityWeather(e) {
         }
         )
 }
+//OUTSTANDING FEATURES:
+// ##### 6. search-history-w/-links
 
-//user types the name of the City they want weather for and press enter
+// ###### feature description: when a user clicks on a city in the search history then they are again presented with current and future conditions for that city
+// - [ ] incomplete
+// - issues: See issue 1 above.  Also, due to time constraints I could not research how to keep the information in local storage.
 
-//then we make an api call for the entered name "city"
+// ##### 7. dash-opens-with-last-search
 
-// save data once a search is made;
-// once submit is pressed take that city and save it to local storage.
-
-// when page loads, retreive data from local storage for the array of cities.
+// ###### feature description: when a user opens the weather dashboard they are presented with the last searched city forecast
+// - [ ] incomplete
+// - issues: See issue 1 above.  Also, due to time constraints I could not research how to keep the information in local storage.
