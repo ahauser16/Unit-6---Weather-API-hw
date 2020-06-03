@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App - Javascript</title>
+
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+</head>
+
+
+
+
+<!-- ## Acceptance Criteria
+GIVEN a weather dashboard with form inputs
+WHEN I search for a city
+QQQ: do I need to include a search functionality?
+
+THEN I am presented with current and future conditions for that city and that city is added to the search history
+WHEN I view current weather conditions for that city
+THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
+
+
+QQQ: how do I make the conditional work?
+WHEN I view the UV index
+THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
+
+
+
+WHEN I view future weather conditions for that city
+THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
+
+WHEN I click on a city in the search history
+THEN I am again presented with current and future conditions for that city
+
+WHEN I open the weather dashboard
+THEN I am presented with the last searched city forecast
+```
+
+The following image demonstrates the application functionality:
+
+![weather dashboard demo](./Assets/06-server-side-apis-homework-demo.png)  -->
+
+
+
+<body>
+  <div class="notification"></div>
+  <header class="container-fluid text-center text-white bg-dark p-3">
+    <h1>Weather Dashboard</h1>
+    <h2 class="city">
+      </h1>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-6 col-md-4">
+        <h3>Search for a City:</h3>
+
+        <!-- This form will be where users input data about the weather -->
+        
+        <form id="city-form">
+          <label for="city-input"> Search for a City </label>
+          <input type="text" id="city-input">
+          <br>
+          <!-- this button will trigger the AJAX call -->
+          <input type="submit" id="find_city" value="City Search">Submit</input>
+        </form>
+
+        <div id="city-view"></div>
+
+        <form>
+          <div class="btn-group-vertical">
+
+            <label for="city-input">
+              <button type="button" class="btn btn-secondary" id="city-input">Ludlow</button>
+            </label>
+            <button type="button" class="btn btn-secondary" id="city-input">Brooklyn</button>
+            <button type="button" class="btn btn-secondary" id="city-input">Jupiter Florida</button>
+            <button type="button" class="btn btn-secondary" id="city-input">Austin</button>
+            <button type="button" class="btn btn-secondary" id="city-input">Chicago</button>
+            <button type="button" class="btn btn-secondary" id="city-input">New York</button>
+            <button type="button" class="btn btn-secondary" id="city-input">Los Angeles</button>
+            <button type="button" class="btn btn-secondary" id="city-input">San Francisco</button>
+            <button type="button" class="btn btn-secondary" id="city-input">Seattle</button>
+            <button type="button" class="btn btn-secondary" id="city-input">Denver</button>
+            <button type="button" class="btn btn-secondary" id="city-input">Atlanta</button>
+            <button type="button" class="btn btn-secondary" id="city-input">Siberia</button>
+          </div>
+        </form>
+
+      </div>
+      <div class="col-6 col-md-8">
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th scope="col">Temperature</th>
+              <th scope="col" class="description" colspan="2"></th>
+              <th scope="col">
+                <img class="icon"> </img>
+              </th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="temp"></td>
+              <td class="humidity"></td>
+              <td></td>
+              <td>
+                <div class="uvi"></div>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="tempMorn"></td>
+              <td class="wind_speed"></td>
+              <td></td>
+              <td class="uviColor"></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="tempDay"></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="tempEve"></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="tempNight"></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="row">
+          <h2>5-Day Forecast:</h2>
+
+          <div class="list-group list-group-horizontal days">
+            <!-- <a href="#" class="list-group-item list-group-item-action active ">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Day 2</h5>
+                <small>weather icon</small>
+              </div>
+              <p class="mb-1 temp"></p>Temp:</p>
+              <p class="mb-1">Humidity:</p>
+              <p class="mb-1">Wind SPeed:</p>
+              <p class="mb-1">UV Index: 'red object'</p>
+            </a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="weatherapi.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</body>
+
+</html>
