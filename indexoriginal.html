@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App - Javascript</title>
+
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <script src="weatherapi.js" defer></script>
+
+</head>
+
+<body>
+  <div class="notification"></div>
+  <header class="container-fluid text-center text-white bg-dark p-3">
+    <h1>Weather Dashboard</h1>
+    <h2 class="city">
+      </h1>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-6 col-md-4">
+        <h3>Search for a City:</h3>
+
+        <!-- This form will be where users input data about the weather -->
+
+        <form id="city-form">
+          <label for="city-input"> Search for a City
+
+          </label>
+          <input type="text" id="city-input">
+          <br>
+          <!-- this button will trigger the AJAX call -->
+          <input type="submit" id="find_city" value="City Search">Submit</input>
+        </form>
+
+        <div id="city-view"></div>
+
+
+        <div class="btn-group-vertical">
+          <ol id="cityList">
+
+          </ol>
+        </div>
+
+
+      </div>
+      <div class="col-6 col-md-8">
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th scope="col">Temperature</th>
+              <th scope="col" class="description" colspan="2"></th>
+              <th scope="col">
+                <img class="icon"> </img>
+              </th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="temp"></td>
+              <td class="humidity"></td>
+              <td></td>
+              <td>
+                <div class="uvi"></div>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="tempMorn"></td>
+              <td class="wind_speed"></td>
+              <td></td>
+              <td class="uviColor"></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="tempDay"></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="tempEve"></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="tempNight"></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="row">
+          <h2>5-Day Forecast:</h2> -->
+
+          <div class="list-group list-group-horizontal days">
+            <!-- <a href="#" class="list-group-item list-group-item-action active ">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Day 2</h5>
+                <small>weather icon</small>
+              </div>
+              <p class="mb-1 temp"></p>Temp:</p>
+              <p class="mb-1">Humidity:</p>
+              <p class="mb-1">Wind SPeed:</p>
+              <p class="mb-1">UV Index: 'red object'</p>
+            </a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
